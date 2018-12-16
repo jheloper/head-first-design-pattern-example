@@ -26,6 +26,7 @@ public class DuckTest {
         assertEquals(Duck.FLY, redheadDuck.fly());
     }
 
+
     @Test
     public void testActionOfRubberDuck() {
         final Duck rubberDuck = new RubberDuck();
@@ -33,5 +34,15 @@ public class DuckTest {
         assertEquals(Duck.SWIM, rubberDuck.swim());
         assertEquals(RubberDuck.DISPLAY, rubberDuck.display());
         assertEquals(RubberDuck.FLY, rubberDuck.fly());
+    }
+
+
+    @Test
+    public void testActionOfDecoyDuck() {
+        final Duck decoyDuck = new DecoyDuck();
+        assertEquals(DecoyDuck.QUACK, decoyDuck.quack());
+        assertEquals(Duck.SWIM, decoyDuck.swim());
+        assertEquals(DecoyDuck.DISPLAY, decoyDuck.display());
+        assertEquals(DecoyDuck.FLY, decoyDuck.fly());
     }
 }
