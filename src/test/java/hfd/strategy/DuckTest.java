@@ -29,7 +29,7 @@ public class DuckTest {
     @Test
     public void testActionOfRubberDuck() {
         final Duck rubberDuck = new RubberDuck();
-        assertEquals(Duck.QUACK, rubberDuck.quack());
+        assertEquals(RubberDuck.QUACK, rubberDuck.quack());
         assertEquals(Duck.SWIM, rubberDuck.swim());
         assertEquals(RubberDuck.DISPLAY, rubberDuck.display());
         assertEquals(Duck.FLY, rubberDuck.fly());
