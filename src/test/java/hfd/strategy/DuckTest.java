@@ -1,6 +1,7 @@
 package hfd.strategy;
 
 import static org.junit.Assert.*;
+
 import org.junit.Test;
 
 
@@ -23,5 +24,14 @@ public class DuckTest {
         assertEquals(Duck.SWIM, redheadDuck.swim());
         assertEquals(RedheadDuck.DISPLAY, redheadDuck.display());
         assertEquals(Duck.FLY, redheadDuck.fly());
+    }
+
+    @Test
+    public void testActionOfRubberDuck() {
+        final Duck rubberDuck = new RubberDuck();
+        assertEquals(Duck.QUACK, rubberDuck.quack());
+        assertEquals(Duck.SWIM, rubberDuck.swim());
+        assertEquals(RubberDuck.DISPLAY, rubberDuck.display());
+        assertEquals(Duck.FLY, rubberDuck.fly());
     }
 }
