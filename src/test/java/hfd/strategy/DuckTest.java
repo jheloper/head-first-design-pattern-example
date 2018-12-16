@@ -7,19 +7,21 @@ import org.junit.Test;
 public class DuckTest {
 
     @Test
-    public void testDisplayMallardDuck() {
+    public void testActionOfMallardDuck() {
         final Duck mallardDuck = new MallardDuck();
         assertEquals(Duck.QUACK, mallardDuck.quack());
         assertEquals(Duck.SWIM, mallardDuck.swim());
         assertEquals(MallardDuck.DISPLAY, mallardDuck.display());
+        assertEquals(Duck.FLY, mallardDuck.fly());
     }
 
 
     @Test
-    public void testDisplayRedheadDuck() {
+    public void testActionOfRedheadDuck() {
         final Duck redheadDuck = new RedheadDuck();
         assertEquals(Duck.QUACK, redheadDuck.quack());
         assertEquals(Duck.SWIM, redheadDuck.swim());
         assertEquals(RedheadDuck.DISPLAY, redheadDuck.display());
+        assertEquals(Duck.FLY, redheadDuck.fly());
     }
 }
