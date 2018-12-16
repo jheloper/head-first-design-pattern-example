@@ -2,9 +2,12 @@ package hfd.strategy;
 
 public class DecoyDuck extends Duck {
 
-    public static final String QUACK = "가짜 오리는 울지 못해요.";
-    public static final String FLY = "가짜 오리는 날지 못해요.";
     public static final String DISPLAY = "this is DecoyDuck!";
+
+    public DecoyDuck() {
+        quackBehavior = new MuteQuack();
+        flyBehavior = new FlyNoWay();
+    }
 
     @Override
     public String display() {

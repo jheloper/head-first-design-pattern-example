@@ -9,37 +9,40 @@ public class DuckTest {
 
     @Test
     public void testActionOfMallardDuck() {
-        final MallardDuck mallardDuck = new MallardDuck();
-        assertEquals(Duck.QUACK, mallardDuck.quack());
+        final Duck mallardDuck = new MallardDuck();
+        assertEquals(Quack.QUACK, mallardDuck.performQuack());
         assertEquals(Duck.SWIM, mallardDuck.swim());
         assertEquals(MallardDuck.DISPLAY, mallardDuck.display());
-        assertEquals(Duck.FLY, mallardDuck.fly());
+        assertEquals(FlyWithWings.FLY, mallardDuck.performFly());
     }
 
 
     @Test
     public void testActionOfRedheadDuck() {
-        final RedheadDuck redheadDuck = new RedheadDuck();
-        assertEquals(Duck.QUACK, redheadDuck.quack());
+        final Duck redheadDuck = new RedheadDuck();
+        assertEquals(Quack.QUACK, redheadDuck.performQuack());
         assertEquals(Duck.SWIM, redheadDuck.swim());
         assertEquals(RedheadDuck.DISPLAY, redheadDuck.display());
-        assertEquals(Duck.FLY, redheadDuck.fly());
+        assertEquals(FlyWithWings.FLY, redheadDuck.performFly());
     }
 
 
     @Test
     public void testActionOfRubberDuck() {
-        final RubberDuck rubberDuck = new RubberDuck();
-        assertEquals(RubberDuck.QUACK, rubberDuck.quack());
+        final Duck rubberDuck = new RubberDuck();
+        assertEquals(Squeak.SQUEAK, rubberDuck.performQuack());
         assertEquals(Duck.SWIM, rubberDuck.swim());
         assertEquals(RubberDuck.DISPLAY, rubberDuck.display());
+        assertEquals(FlyNoWay.FLY, rubberDuck.performFly());
     }
 
 
     @Test
     public void testActionOfDecoyDuck() {
-        final DecoyDuck decoyDuck = new DecoyDuck();
+        final Duck decoyDuck = new DecoyDuck();
+        assertEquals(MuteQuack.QUACK, decoyDuck.performQuack());
         assertEquals(Duck.SWIM, decoyDuck.swim());
         assertEquals(DecoyDuck.DISPLAY, decoyDuck.display());
+        assertEquals(FlyNoWay.FLY, decoyDuck.performFly());
     }
 }
