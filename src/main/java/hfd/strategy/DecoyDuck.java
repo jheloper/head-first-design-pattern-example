@@ -7,17 +7,7 @@ public class DecoyDuck extends Duck {
     public static final String DISPLAY = "this is DecoyDuck!";
 
     @Override
-    public String quack() {
-        return QUACK;
-    }
-
-    @Override
     public String display() {
         return DISPLAY;
-    }
-
-    @Override
-    public String fly() {
-        return FLY;
     }
 }

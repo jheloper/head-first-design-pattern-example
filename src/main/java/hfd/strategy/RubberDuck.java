@@ -1,6 +1,6 @@
 package hfd.strategy;
 
-public class RubberDuck extends Duck {
+public class RubberDuck extends Duck implements Quackable {
 
     public static final String QUACK = "삑삑!";
     public static final String DISPLAY = "this is RubberDuck!";
@@ -14,10 +14,5 @@ public class RubberDuck extends Duck {
     @Override
     public String display() {
         return DISPLAY;
-    }
-
-    @Override
-    public String fly() {
-        return FLY;
     }
 }
