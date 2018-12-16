@@ -32,6 +32,6 @@ public class DuckTest {
         assertEquals(RubberDuck.QUACK, rubberDuck.quack());
         assertEquals(Duck.SWIM, rubberDuck.swim());
         assertEquals(RubberDuck.DISPLAY, rubberDuck.display());
-        assertEquals(Duck.FLY, rubberDuck.fly());
+        assertEquals(RubberDuck.FLY, rubberDuck.fly());
     }
 }
