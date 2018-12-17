@@ -54,5 +54,8 @@ public class DuckTest {
         assertEquals(Duck.SWIM, modelDuck.swim());
         assertEquals(ModelDuck.DISPLAY, modelDuck.display());
         assertEquals(FlyNoWay.FLY, modelDuck.performFly());
+
+        modelDuck.setFlyBehavior(new FlyRocketPowered());
+        assertEquals(FlyRocketPowered.FLY, modelDuck.performFly());
     }
 }
