@@ -45,4 +45,14 @@ public class DuckTest {
         assertEquals(DecoyDuck.DISPLAY, decoyDuck.display());
         assertEquals(FlyNoWay.FLY, decoyDuck.performFly());
     }
+
+
+    @Test
+    public void testActionOfModelDuck() {
+        final Duck modelDuck = new ModelDuck();
+        assertEquals(Quack.QUACK, modelDuck.performQuack());
+        assertEquals(Duck.SWIM, modelDuck.swim());
+        assertEquals(ModelDuck.DISPLAY, modelDuck.display());
+        assertEquals(FlyNoWay.FLY, modelDuck.performFly());
+    }
 }
