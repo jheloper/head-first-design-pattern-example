@@ -1,4 +1,4 @@
-package hfd.strategy;
+package hfd.strategy.simuduck;
 
 public class MuteQuack implements Quackable {
 

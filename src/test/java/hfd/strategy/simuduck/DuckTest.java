@@ -1,8 +1,8 @@
-package hfd.strategy;
-
-import static org.junit.Assert.*;
+package hfd.strategy.simuduck;
 
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 
 public class DuckTest {
