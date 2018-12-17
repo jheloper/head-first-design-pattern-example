@@ -31,4 +31,14 @@ public class CharacterTest {
         final Character troll = new Troll();
         Assert.assertEquals(AxeBehavior.WEAPON, troll.fight());
     }
+
+
+    @Test
+    public void testDynamicChangeWeapon() {
+        final Character knight = new Knight();
+        Assert.assertEquals(SwordBehavior.WEAPON, knight.fight());
+
+        knight.setWeapon(new BowAndArrowBehavior());
+        Assert.assertEquals(BowAndArrowBehavior.WEAPON, knight.fight());
+    }
 }
