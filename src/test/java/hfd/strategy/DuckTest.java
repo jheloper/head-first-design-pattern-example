@@ -58,4 +58,11 @@ public class DuckTest {
         modelDuck.setFlyBehavior(new FlyRocketPowered());
         assertEquals(FlyRocketPowered.FLY, modelDuck.performFly());
     }
+
+
+    @Test
+    public void testActionOfDuckQuacker() {
+        final DuckQuacker duckQuacker = new DuckQuacker();
+        assertEquals(Quack.QUACK, duckQuacker.performQuack());
+    }
 }
