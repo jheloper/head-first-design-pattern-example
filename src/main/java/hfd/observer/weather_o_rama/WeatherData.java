@@ -2,11 +2,11 @@ package hfd.observer.weather_o_rama;
 
 public class WeatherData {
 
-    private CurrentConditionDisplay currentConditionDisplay;
+    public CurrentConditionDisplay currentConditionDisplay;
 
-    private StatisticsDisplay statisticsDisplay;
+    public StatisticsDisplay statisticsDisplay;
 
-    private ForecastDisplay forecastDisplay;
+    public ForecastDisplay forecastDisplay;
 
 
     public WeatherData() {
@@ -17,17 +17,17 @@ public class WeatherData {
 
 
     public double getTemperature() {
-        return Math.random();
+        return 1;
     }
 
 
     public double getHumidity() {
-        return Math.random();
+        return 3;
     }
 
 
     public double getPressure() {
-        return Math.random();
+        return 5;
     }
 
 
