@@ -1,44 +1,47 @@
 package hfd.observer.weather_o_rama;
 
-public class WeatherData {
+import java.util.ArrayList;
+import java.util.List;
 
-    public CurrentConditionDisplay currentConditionDisplay;
+public class WeatherData implements Subject {
 
-    public StatisticsDisplay statisticsDisplay;
-
-    public ForecastDisplay forecastDisplay;
+    private double temperature;
+    private double humidity;
+    private double pressure;
+    private List<Observer> observers;
 
 
     public WeatherData() {
-        this.currentConditionDisplay = new CurrentConditionDisplay();
-        this.statisticsDisplay = new StatisticsDisplay();
-        this.forecastDisplay = new ForecastDisplay();
+        this.observers = new ArrayList<>();
+    }
+    
+    @Override
+    public void registerObserver(Observer observer) {
+        observers.add(observer);
     }
 
-
-    public double getTemperature() {
-        return 1;
+    @Override
+    public void removeObserver(Observer observer) {
+        final int index = observers.indexOf(observer);
+        if (0 <= index) {
+            observers.remove(index);
+        }
     }
 
-
-    public double getHumidity() {
-        return 3;
+    @Override
+    public void notifyObservers() {
+        for (Observer observer : observers) {
+            observer.update(temperature, humidity, pressure);
+        }
     }
-
-
-    public double getPressure() {
-        return 5;
-    }
-
 
     public void measurementsChanged() {
+        notifyObservers();
+    }
 
-        final double temperature = getTemperature();
-        final double humidity = getHumidity();
-        final double pressure = getPressure();
-
-        currentConditionDisplay.update(temperature, humidity, pressure);
-        statisticsDisplay.update(temperature, humidity, pressure);
-        forecastDisplay.update(temperature, humidity, pressure);
+    public void setMeasurements(double temperature, double humidity, double pressure) {
+        this.temperature = temperature;
+        this.humidity = humidity;
+        this.pressure = pressure;
     }
 }
