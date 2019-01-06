@@ -14,7 +14,7 @@ public class WeatherData implements Subject {
     public WeatherData() {
         this.observers = new ArrayList<>();
     }
-    
+
     @Override
     public void registerObserver(Observer observer) {
         observers.add(observer);
@@ -43,5 +43,6 @@ public class WeatherData implements Subject {
         this.temperature = temperature;
         this.humidity = humidity;
         this.pressure = pressure;
+        measurementsChanged();
     }
 }
