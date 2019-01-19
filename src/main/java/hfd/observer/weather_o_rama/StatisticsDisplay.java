@@ -1,18 +1,20 @@
 package hfd.observer.weather_o_rama;
 
 import java.text.MessageFormat;
+import java.util.Observable;
+import java.util.Observer;
 
 public class StatisticsDisplay implements Observer, DisplayElement {
 
-    private Subject weatherData;
+    private Observable weatherData;
     private double temperature;
     private double humidity;
     private double pressure;
 
 
-    public StatisticsDisplay(Subject weatherData) {
+    public StatisticsDisplay(Observable weatherData) {
         this.weatherData = weatherData;
-        this.weatherData.registerObserver(this);
+        this.weatherData.addObserver(this);
     }
 
     @Override
@@ -21,10 +23,14 @@ public class StatisticsDisplay implements Observer, DisplayElement {
     }
 
     @Override
-    public void update(double temperature, double humidity, double pressure) {
-        this.temperature = temperature;
-        this.humidity = humidity;
-        this.pressure = pressure;
-        display();
+    public void update(Observable o, Object arg) {
+        if (o instanceof WeatherData) {
+            final WeatherData weatherData = (WeatherData) o;
+            this.temperature = weatherData.getTemperature();
+            this.humidity = weatherData.getHumidity();
+            this.pressure = weatherData.getPressure();
+
+            display();
+        }
     }
 }

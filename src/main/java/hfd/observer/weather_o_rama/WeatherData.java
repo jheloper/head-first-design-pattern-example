@@ -1,41 +1,27 @@
 package hfd.observer.weather_o_rama;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Observable;
 
-public class WeatherData implements Subject {
+public class WeatherData extends Observable {
 
     private double temperature;
     private double humidity;
     private double pressure;
-    private List<Observer> observers;
 
-
-    public WeatherData() {
-        this.observers = new ArrayList<>();
+    public double getTemperature() {
+        return temperature;
     }
 
-    @Override
-    public void registerObserver(Observer observer) {
-        observers.add(observer);
+    public double getHumidity() {
+        return humidity;
     }
 
-    @Override
-    public void removeObserver(Observer observer) {
-        final int index = observers.indexOf(observer);
-        if (0 <= index) {
-            observers.remove(index);
-        }
-    }
-
-    @Override
-    public void notifyObservers() {
-        for (Observer observer : observers) {
-            observer.update(temperature, humidity, pressure);
-        }
+    public double getPressure() {
+        return pressure;
     }
 
     public void measurementsChanged() {
+        setChanged();
         notifyObservers();
     }
 
@@ -43,6 +29,7 @@ public class WeatherData implements Subject {
         this.temperature = temperature;
         this.humidity = humidity;
         this.pressure = pressure;
+
         measurementsChanged();
     }
 }
