@@ -2,7 +2,7 @@ package hfd.decorator.starbuzz;
 
 public abstract class Beverage {
 
-    private String description;
+    protected String description;
     private boolean milk = false;
     private boolean soy = false;
     private boolean mocha = false;
