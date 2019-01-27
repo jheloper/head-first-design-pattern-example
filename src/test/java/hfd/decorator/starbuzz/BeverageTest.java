@@ -13,30 +13,26 @@ public class BeverageTest {
         final Beverage espresso = new Espresso();
         final Beverage houseBlend = new HouseBlend();
 
-        final Beverage darkRoastWithSoy = new DarkRoast();
-        darkRoastWithSoy.setSoy(true);
-
-        final Beverage decafWithSteamedMilkAndWhip = new Decaf();
-        decafWithSteamedMilkAndWhip.setMilk(true);
-        decafWithSteamedMilkAndWhip.setWhip(true);
-
-        final Beverage espressoWithMochaAndWhip = new Espresso();
-        espressoWithMochaAndWhip.setMocha(true);
-        espressoWithMochaAndWhip.setWhip(true);
-
-        final Beverage houseBlendWithSoyAndMochaAndWhip = new HouseBlend();
-        houseBlendWithSoyAndMochaAndWhip.setSoy(true);
-        houseBlendWithSoyAndMochaAndWhip.setMocha(true);
-        houseBlendWithSoyAndMochaAndWhip.setWhip(true);
+        final Beverage darkRoastWithSoy = new Soy(new DarkRoast());
+        final Beverage decafWithSteamedMilkAndWhip = new Whip(new Milk(new Decaf()));
+        final Beverage espressoWithMochaAndWhip = new Whip(new Mocha(new Espresso()));
+        final Beverage houseBlendWithSoyAndMochaAndWhip = new Whip(new Mocha(new Soy(new HouseBlend())));
 
         Assert.assertEquals(5500, darkRoast.cost());
         Assert.assertEquals(5000, decaf.cost());
         Assert.assertEquals(3500, espresso.cost());
         Assert.assertEquals(10000, houseBlend.cost());
 
+        System.out.println(darkRoastWithSoy.getDescription());
         Assert.assertEquals(6100, darkRoastWithSoy.cost());
+
+        System.out.println(decafWithSteamedMilkAndWhip.getDescription());
         Assert.assertEquals(5800, decafWithSteamedMilkAndWhip.cost());
+
+        System.out.println(espressoWithMochaAndWhip.getDescription());
         Assert.assertEquals(4200, espressoWithMochaAndWhip.cost());
+
+        System.out.println(houseBlendWithSoyAndMochaAndWhip.getDescription());
         Assert.assertEquals(11300, houseBlendWithSoyAndMochaAndWhip.cost());
     }
 }
